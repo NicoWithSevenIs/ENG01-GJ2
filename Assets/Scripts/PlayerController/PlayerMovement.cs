@@ -30,20 +30,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 forward = Camera.main.transform.forward;
-        forward.y = 0;
-        Vector3 right = Camera.main.transform.right;
-        right.y = 0;
+        Vector3 forwardRelative = input.y * Camera.main.transform.forward;
+        Vector3 rightRelative = input.x * Camera.main.transform.right;
 
-        Vector3 forwardRelative = input.y * forward;
-        Vector3 rightRelative = input.x * right;
-
-        Vector3 dir = forwardRelative + rightRelative;
-
-        totalVelocity = dir.normalized * speed;
-
-        if (isRunning)
-            totalVelocity *= sprintMultiplier;
+        totalVelocity = (forwardRelative + rightRelative).normalized * speed * (isRunning ? sprintMultiplier : 1f);
+        totalVelocity.y = 0;
 
         body.AddForce(totalVelocity, ForceMode.Force);
     }
@@ -60,4 +51,5 @@ public class PlayerMovement : MonoBehaviour
         else if (context.canceled)
             isRunning = false;
     }
+
 }
