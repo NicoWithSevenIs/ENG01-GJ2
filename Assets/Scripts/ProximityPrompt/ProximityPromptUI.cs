@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ProximityPromptUI : MonoBehaviour
@@ -27,9 +28,8 @@ public class ProximityPromptUI : MonoBehaviour
     [SerializeField] private float holdDuration = 3f;
     private float holdTime;
 
-    // [On Completion] //
-    private Action _onCompletion;
-    public Action OnCompletion { get { return _onCompletion; } set { _onCompletion = value; } }
+    [Header("Actions")]
+    public UnityEvent onCompletion;
 
     // [Components] //
 
@@ -49,10 +49,7 @@ public class ProximityPromptUI : MonoBehaviour
         isKeyHeld = false;
         isActivatable = true;
 
-        _onCompletion = () =>
-        {
-            print("Yippie");
-        };
+ 
     }
 
     private void Update()
@@ -98,7 +95,7 @@ public class ProximityPromptUI : MonoBehaviour
             TriggerTween(true, true);
             isActivatable = false;
             holdTime = 0f;
-            _onCompletion?.Invoke();
+            onCompletion?.Invoke();
         }
         
         
@@ -112,54 +109,49 @@ public class ProximityPromptUI : MonoBehaviour
 
         LeanTween.scale(keyFrameGUI, Vector3.one * (value ? 1.3f : 1f), 0.35f);
 
-        LeanTween.value(gameObject, promiximityPromptFrameGUI.color.a, value? 0f: frameAlpha, 0.1f).setOnUpdate((value) => {
-            Color c = promiximityPromptFrameGUI.color;
-            c.a = value;
-            promiximityPromptFrameGUI.color = c;
-        });
+        TweenAlpha(promiximityPromptFrameGUI.color.a, value ? 0f : 1f, promiximityPromptFrameGUI);
+        TweenAlpha(actionTextGUI.color.a, value ? 0f : 1f, actionTextGUI);
 
-        LeanTween.value(gameObject, actionTextGUI.color.a, value? 0f : 1f, 0.1f).setOnUpdate((value) => {
-            Color c = actionTextGUI.color;
-            c.a = value;
-            actionTextGUI.color = c;
-        });
+        if (!affectsKey)
+            return;
 
-        if(affectsKey)
+        Image keyFrame = keyFrameGUI.GetComponent<Image>();
+
+        TweenAlpha(keyFrame.color.a, value ? 0f : 1f, keyFrame);
+
+        foreach (Transform t in keyFrameGUI.transform)
         {
-            Image keyFrame = keyFrameGUI.GetComponent<Image>();
-            LeanTween.value(gameObject, keyFrame.color.a, value ? 0f : 1f, 0.1f).setOnUpdate((value) => {
-                Color c = keyFrame.color;
-                c.a = value;
-                keyFrame.color = c;
-            });
 
-            foreach (Transform t in keyFrameGUI.transform)
-            {
+            Image i =  t.gameObject.GetComponent<Image>();
+            TextMeshProUGUI text = t.GetComponent<TextMeshProUGUI>();
 
-                Image i =  t.gameObject.GetComponent<Image>();
-                TextMeshProUGUI text = t.GetComponent<TextMeshProUGUI>();
-                if (i != null)
-                {
-                    LeanTween.value(gameObject, i.color.a, value ? 0f : 1f, 0.1f).setOnUpdate((value) => {
-                        Color c = i.color;
-                        c.a = value;
-                        i.color = c;
-                    });
-                }
+            if (i != null)
+                TweenAlpha(i.color.a, value ? 0f : 1f, i);
 
-                if(text != null)
-                {
-                    LeanTween.value(gameObject, text.color.a, value ? 0f : 1f, 0.1f).setOnUpdate((value) => {
-                        Color c = text.color;
-                        c.a = value;
-                        text.color = c;
-                    });
+            if (text != null)       
+                TweenAlpha(text.color.a, value ? 0f : 1f, text);
 
-                }
-
-            }
         }
+        
     }
 
+  
+    private void TweenAlpha(float initial, float goal, Image image)
+    {
+        LeanTween.value(gameObject, initial, goal, 0.1f).setOnUpdate((value) => {
+            Color c = image.color;
+            c.a = value;
+            image.color = c;
+        });
+    }
+
+    private void TweenAlpha(float initial, float goal, TextMeshProUGUI text)
+    {
+        LeanTween.value(gameObject, initial, goal, 0.1f).setOnUpdate((value) => {
+            Color c = text.color;
+            c.a = value;
+            text.color = c;
+        });
+    }
 
 }

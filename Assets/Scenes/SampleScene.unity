@@ -581,7 +581,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 644628280}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05120ee15a2de2e49b92f1ee69ed3140, type: 3}
   m_Name: 
@@ -1690,12 +1690,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionKey: 101
   actionText: Inspect
-  isToggle: 0
+  isToggle: 1
   keyFrameGUI: {fileID: 1158597009}
   keyTextGUI: {fileID: 1919059107}
   actionTextGUI: {fileID: 1257695576}
   progressGUI: {fileID: 231625604}
   holdDuration: 3
+  onCompletion:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 644628281}
+        m_TargetAssemblyTypeName: testAgent, Assembly-CSharp
+        m_MethodName: setDestination
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1067404409
 MonoBehaviour:
   m_ObjectHideFlags: 0
