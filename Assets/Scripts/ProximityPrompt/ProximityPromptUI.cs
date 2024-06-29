@@ -39,7 +39,7 @@ public class ProximityPromptUI : MonoBehaviour
     float frameAlpha;
 
 
-    private void Start()
+    private void Awake()
     {
         keyTextGUI.text = actionKey.ToString();
         actionTextGUI.text = actionText;
