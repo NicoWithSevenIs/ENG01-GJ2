@@ -14,7 +14,7 @@ public class testAgent : MonoBehaviour
     }
 
 
-    public void setDestination()
+    public void Update()
     {
         agent.SetDestination(player.position);
     }

@@ -7,13 +7,15 @@ public class Lamp : MonoBehaviour
 {
     [SerializeField] private GameObject[] emittables;
     [SerializeField] private Light l;
+    [SerializeField] private bool turnedOnByDefault = false;
 
     private bool _isTurnedOn = true;
     public bool isTurnedOn { get { return _isTurnedOn; } set { _isTurnedOn = value; } }
 
     private void Start()
     {
-        flipSwitch();
+        if(!turnedOnByDefault)
+            flipSwitch();
     }
 
     public void flipSwitch()
