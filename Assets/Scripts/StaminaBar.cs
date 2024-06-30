@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class StaminaBar : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private PlayerMovement movement;
+    [SerializeField] private PlayerMovement movement; //not sure if modifying the event broadcaster's allowed so im j settling with this dependency
     [SerializeField] private Image staminaBarFrame;
     [SerializeField] private Image staminaBar;
     [SerializeField] private Image staminaBarBackground;
@@ -85,10 +85,8 @@ public class StaminaBar : MonoBehaviour
     {
 
         while(movement.CurrentStamina < movement.MaxStamina)
-        {
-            yield return null;
-        }
-
+           yield return null;
+        
         LeanTween.cancel(gameObject);
         tweenRectX(staminaBarFrame.rectTransform, inactiveWidth, tweenSpeed).setOnComplete(() => setComponentsActive(false));
         tweenRectX(staminaBar.rectTransform, 0, tweenSpeed);

@@ -87,13 +87,22 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isSpeedingUp()
     {
+
+        /*
         Vector3 xzBody = body.velocity;
         xzBody.y = 0;
 
         Vector3 xzPrevious = previousVelocity;
         xzPrevious.y = 0;
+     
 
         return xzBody.magnitude > xzPrevious.magnitude;
+           */
+
+        Vector3 v = body.velocity;
+        v.y = 0;
+        return v.magnitude > 1f;
+
     }
 
 }
