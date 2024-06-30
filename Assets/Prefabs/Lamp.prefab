@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3959238964626630154}
   - component: {fileID: 2599287682921065947}
   - component: {fileID: 7425498848105993665}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,7 +1847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4536152982488364892}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1888,7 +1888,7 @@ GameObject:
   - component: {fileID: 4881527084397107725}
   - component: {fileID: 7000641254545076622}
   - component: {fileID: 9172386769691775165}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lamp Shade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4467,7 +4467,7 @@ GameObject:
   - component: {fileID: 6352866427739977030}
   - component: {fileID: 7880456397898256624}
   - component: {fileID: 9169984751633765927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6305,7 +6305,7 @@ GameObject:
   - component: {fileID: 7109691883598521834}
   - component: {fileID: 4442290869617274038}
   - component: {fileID: 5727148105938954155}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Butt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8882,7 +8882,7 @@ GameObject:
   - component: {fileID: 8196965562997109808}
   - component: {fileID: 9122933940387429257}
   - component: {fileID: 2330840909674255290}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10716,7 +10716,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5291658885958524949}
   - component: {fileID: 6906850867422458090}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10813,7 +10813,7 @@ GameObject:
   - component: {fileID: 7464013009781033563}
   - component: {fileID: 6301840753986663555}
   - component: {fileID: 4586975099469743728}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13385,7 +13385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4806303766347514386}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light Bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13425,7 +13425,7 @@ GameObject:
   - component: {fileID: 4681220765722636217}
   - component: {fileID: 3549841806353437193}
   - component: {fileID: 6648275343988866725}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15263,7 +15263,7 @@ GameObject:
   - component: {fileID: 1733434328229165007}
   - component: {fileID: 3739909082813839535}
   - component: {fileID: 2211222890179114197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Anchor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17844,7 +17844,7 @@ GameObject:
   - component: {fileID: 1747522517523819604}
   - component: {fileID: 1650798112485101637}
   - component: {fileID: 704588895285415166}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19682,7 +19682,7 @@ GameObject:
   - component: {fileID: 1646421999290517294}
   - component: {fileID: 5115108247216186088}
   - component: {fileID: 5969775079807400780}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21516,8 +21516,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4067856680313297113}
   - component: {fileID: 1870744867728430846}
-  - component: {fileID: 3869952495289412093}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21560,22 +21559,6 @@ MonoBehaviour:
   - {fileID: 2838442640408806537}
   l: {fileID: 6906850867422458090}
   turnedOnByDefault: 0
---- !u!208 &3869952495289412093
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7240327075278620261}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 0
-  m_Extents: {x: 1, y: 2.5, z: 1}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: -1, z: 0}
-  m_TimeToStationary: 0.5
 --- !u!1 &7973230900478332636
 GameObject:
   m_ObjectHideFlags: 0
@@ -21590,7 +21573,7 @@ GameObject:
   - component: {fileID: 2187435150730874100}
   - component: {fileID: 2840202960802681964}
   - component: {fileID: 4364764240549763449}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23428,7 +23411,7 @@ GameObject:
   - component: {fileID: 7536783722214941725}
   - component: {fileID: 8116162724220259790}
   - component: {fileID: 4331461728278240108}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Light Bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57525,7 +57508,7 @@ GameObject:
   - component: {fileID: 835197362210704636}
   - component: {fileID: 1540730639868258470}
   - component: {fileID: 2446016342983706697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59357,6 +59340,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4067856680313297113}
     m_Modifications:
+    - target: {fileID: 40549793926975974, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448837880922251252, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545547295991082543, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1651755116980956042, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59396,6 +59391,10 @@ PrefabInstance:
     - target: {fileID: 1651755116980956042, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2807838930961862960, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3013841493146314743, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
       propertyPath: m_LocalScale.x
@@ -59448,6 +59447,22 @@ PrefabInstance:
     - target: {fileID: 4103304887290012325, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
       propertyPath: m_Name
       value: Promptable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4103304887290012325, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5926743064268132999, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6344146738349072126, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7411242756413760184, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
