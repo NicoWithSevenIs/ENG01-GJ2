@@ -37,9 +37,13 @@ public class PlayerMovement : MonoBehaviour
  
     }
 
+    private Vector3 previousVelocity = Vector3.zero;
 
     private void FixedUpdate()
     {
+        previousVelocity = body.velocity;
+
+
         Vector3 forwardRelative = input.y * Camera.main.transform.forward;
         Vector3 rightRelative = input.x * Camera.main.transform.right;
 
@@ -51,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (_isRunning)
+        if (_isRunning && isSpeedingUp())
         {
             _currentStamina -= Time.deltaTime;
         }
@@ -68,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Run(InputAction.CallbackContext context)
     {
-        if (context.started && _currentStamina > 0)
+        if (context.started && _currentStamina > 0 && isSpeedingUp())
         {
             _isRunning = true;
             EventBroadcaster.Instance.PostEvent(EventNames.PLAYER_ACTIONS.ON_PLAYER_SPRINT_STARTED);
@@ -79,6 +83,17 @@ public class PlayerMovement : MonoBehaviour
             EventBroadcaster.Instance.PostEvent(EventNames.PLAYER_ACTIONS.ON_PLAYER_SPRINT_ENDED);
         }
             
+    }
+
+    private bool isSpeedingUp()
+    {
+        Vector3 xzBody = body.velocity;
+        xzBody.y = 0;
+
+        Vector3 xzPrevious = previousVelocity;
+        xzPrevious.y = 0;
+
+        return xzBody.magnitude > xzPrevious.magnitude;
     }
 
 }

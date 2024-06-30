@@ -15,7 +15,6 @@ public class StaminaBar : MonoBehaviour
 
     [Header("Configurations")]
     [SerializeField] private float inactiveWidth;
-    [SerializeField] private float uiTimeout = 3f;
     [SerializeField] private float tweenSpeed = 0.2f;
 
     private float barWidth;
@@ -44,6 +43,7 @@ public class StaminaBar : MonoBehaviour
 
             Color c = getRed(staminaBar.fillAmount);
             staminaBar.color = c;
+            staminaBarFrame.color = c;
 
             c.a = staminaBarBackground.color.a;
             staminaBarBackground.color = c;
