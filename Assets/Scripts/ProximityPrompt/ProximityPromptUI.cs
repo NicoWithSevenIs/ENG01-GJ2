@@ -56,6 +56,9 @@ public class ProximityPromptUI : MonoBehaviour
 
     public void setPlayerInRange(bool value)
     {
+        if (!isActivatable)
+            return;
+
         playerInRange = value;
 
         if (!value)
