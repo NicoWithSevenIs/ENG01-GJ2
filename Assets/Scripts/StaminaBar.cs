@@ -44,7 +44,6 @@ public class StaminaBar : MonoBehaviour
 
             Color c = getRed(staminaBar.fillAmount);
             staminaBar.color = c;
-            staminaBarFrame.color = c;
 
             c.a = staminaBarBackground.color.a;
             staminaBarBackground.color = c;
@@ -62,7 +61,7 @@ public class StaminaBar : MonoBehaviour
 
         Color.RGBToHSV(Color.white, out hue, out saturation, out value);
 
-        return Color.HSVToRGB(hue, 1 - fillAmount, value);
+        return Color.HSVToRGB(hue, 1 - fillAmount - 0.2f, value);
 
     }
 
