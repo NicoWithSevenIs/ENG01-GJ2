@@ -9,14 +9,22 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement Data")]
     [SerializeField] private float speed = 50f;
     [SerializeField] private float sprintMultiplier = 2f;
+    [SerializeField] private float _maxStamina = 3f; //seconds based
+
+    public float MaxStamina { get { return _maxStamina; } }
+
+    private float _currentStamina;
+
+    public float CurrentStamina { get { return _currentStamina; } }
 
     private Vector2 input;
     private Rigidbody body;
 
     [SerializeField] private Vector3 totalVelocity;
-    private bool isRunning = false;
+    private bool _isRunning = false;
+    public bool IsRunning { get { return _isRunning;} }
 
-    
+
     private void Start()
     {
         totalVelocity = Vector3.zero;
@@ -25,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        _currentStamina = _maxStamina;
+ 
     }
 
 
@@ -33,11 +43,23 @@ public class PlayerMovement : MonoBehaviour
         Vector3 forwardRelative = input.y * Camera.main.transform.forward;
         Vector3 rightRelative = input.x * Camera.main.transform.right;
 
-        totalVelocity = (forwardRelative + rightRelative).normalized * speed * (isRunning ? sprintMultiplier : 1f);
+        totalVelocity = (forwardRelative + rightRelative).normalized * speed * (_isRunning && _currentStamina > 0 ? sprintMultiplier : 1f);
         totalVelocity.y = 0;
 
         body.AddForce(totalVelocity, ForceMode.Force);
     }
+
+    private void Update()
+    {
+        if (_isRunning)
+        {
+            _currentStamina -= Time.deltaTime;
+        }
+        else _currentStamina += Time.deltaTime * 0.25f;
+
+        _currentStamina = Mathf.Clamp(_currentStamina, 0, _maxStamina);
+    }
+
 
     public void Move(InputAction.CallbackContext context)
     {
@@ -46,10 +68,17 @@ public class PlayerMovement : MonoBehaviour
 
     public void Run(InputAction.CallbackContext context)
     {
-        if (context.started)
-            isRunning = true;
+        if (context.started && _currentStamina > 0)
+        {
+            _isRunning = true;
+            EventBroadcaster.Instance.PostEvent(EventNames.PLAYER_ACTIONS.ON_PLAYER_SPRINT_STARTED);
+        }    
         else if (context.canceled)
-            isRunning = false;
+        {
+            _isRunning = false;
+            EventBroadcaster.Instance.PostEvent(EventNames.PLAYER_ACTIONS.ON_PLAYER_SPRINT_ENDED);
+        }
+            
     }
 
 }
