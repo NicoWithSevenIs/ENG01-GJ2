@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3832574825353779777}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ShelfContents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,9 +53,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 823591860580291081, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1303973663637126769, guid: de84eac57c939db4794802b7e4204f40, type: 3}
       propertyPath: m_Name
       value: Blue Book Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303973663637126769, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054374498807701774, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370623270464299619, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233346631547791543, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481533162617469896, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4662590321452812370, guid: de84eac57c939db4794802b7e4204f40, type: 3}
       propertyPath: m_LocalPosition.x
@@ -97,6 +121,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -37.452
       objectReference: {fileID: 0}
+    - target: {fileID: 6143995664737858057, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137130336824031445, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -118,6 +150,34 @@ PrefabInstance:
     - target: {fileID: 347370509423568316, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
       propertyPath: m_Name
       value: Red Book Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 347370509423568316, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 740881965919550147, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136750143077599684, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952993747452764165, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203573178604319610, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038711275014715822, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866531927723616708, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6232532946406069151, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,6 +219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 67.793
       objectReference: {fileID: 0}
+    - target: {fileID: 7496000929971970840, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -177,6 +241,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 1641375544982226188, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2935806874674804107, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -217,9 +285,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 31.493
       objectReference: {fileID: 0}
+    - target: {fileID: 4416085635191263184, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101472253926318010, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959691298162742638, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213656142791886353, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162748239327801296, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397057460043996375, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_Name
       value: Black Book Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -239,6 +335,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 1641375544982226188, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2935806874674804107, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0010850728
@@ -279,9 +379,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4416085635191263184, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101472253926318010, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959691298162742638, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213656142791886353, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162748239327801296, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397057460043996375, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_Name
       value: Black Book Variant (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -301,9 +429,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 124081853234084162, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 375653877240048189, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567764619054216086, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847848520602071291, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_Name
       value: Green Book Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488866890692740092, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028997125623589152, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945711066718872572, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8913701928782322087, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -363,6 +523,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 1641375544982226188, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2935806874674804107, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0010850728
@@ -403,9 +567,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4416085635191263184, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101472253926318010, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959691298162742638, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213656142791886353, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162748239327801296, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397057460043996375, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_Name
       value: Black Book Variant (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -425,9 +617,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 124081853234084162, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 375653877240048189, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567764619054216086, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847848520602071291, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_Name
       value: Green Book Variant (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488866890692740092, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028997125623589152, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945711066718872572, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8913701928782322087, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -491,6 +715,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Book Variant (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 347370509423568316, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 740881965919550147, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136750143077599684, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952993747452764165, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203573178604319610, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038711275014715822, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866531927723616708, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6232532946406069151, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0010850728
@@ -531,6 +783,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7496000929971970840, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -549,9 +805,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 823591860580291081, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1303973663637126769, guid: de84eac57c939db4794802b7e4204f40, type: 3}
       propertyPath: m_Name
       value: Blue Book Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303973663637126769, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054374498807701774, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370623270464299619, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233346631547791543, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481533162617469896, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4662590321452812370, guid: de84eac57c939db4794802b7e4204f40, type: 3}
       propertyPath: m_LocalPosition.x
@@ -593,6 +873,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6143995664737858057, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137130336824031445, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -611,9 +899,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 124081853234084162, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 375653877240048189, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567764619054216086, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847848520602071291, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_Name
       value: Green Book Variant (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488866890692740092, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028997125623589152, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945711066718872572, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8913701928782322087, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -673,9 +993,33 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 823591860580291081, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1303973663637126769, guid: de84eac57c939db4794802b7e4204f40, type: 3}
       propertyPath: m_Name
       value: Blue Book Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303973663637126769, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054374498807701774, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370623270464299619, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4233346631547791543, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4481533162617469896, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4662590321452812370, guid: de84eac57c939db4794802b7e4204f40, type: 3}
       propertyPath: m_LocalPosition.x
@@ -716,6 +1060,14 @@ PrefabInstance:
     - target: {fileID: 4662590321452812370, guid: de84eac57c939db4794802b7e4204f40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143995664737858057, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9137130336824031445, guid: de84eac57c939db4794802b7e4204f40, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -800,6 +1152,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 1641375544982226188, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2935806874674804107, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.001085043
@@ -840,9 +1196,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 22.041
       objectReference: {fileID: 0}
+    - target: {fileID: 4416085635191263184, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101472253926318010, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5959691298162742638, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6213656142791886353, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7162748239327801296, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397057460043996375, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
       propertyPath: m_Name
       value: Black Book Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8796208327264863144, guid: 18445d5b9d3fab642ac0b69dee1c59e3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -862,9 +1246,41 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3832574825353779777}
     m_Modifications:
+    - target: {fileID: 124081853234084162, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 375653877240048189, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1567764619054216086, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2847848520602071291, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_Name
       value: Green Book Variant (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963272620811251588, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3488866890692740092, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5028997125623589152, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7945711066718872572, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8913701928782322087, guid: 6cdd9c37e021cc9439ea93aa7c4415d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -928,6 +1344,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red Book Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 347370509423568316, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 740881965919550147, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136750143077599684, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2952993747452764165, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203573178604319610, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4038711275014715822, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4866531927723616708, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6232532946406069151, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0010850728
@@ -967,6 +1411,10 @@ PrefabInstance:
     - target: {fileID: 6232532946406069151, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7496000929971970840, guid: 0cf2416e36a865f4abd06e1341fd756f, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

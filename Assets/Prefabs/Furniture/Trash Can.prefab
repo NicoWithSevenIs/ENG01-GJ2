@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3386307338782360871}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trash Can
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 792979546711012204}
   - component: {fileID: 5999791179442641784}
   - component: {fileID: 1974026094726095125}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +1884,7 @@ GameObject:
   - component: {fileID: 9130902124768687741}
   - component: {fileID: 2788017552843956897}
   - component: {fileID: 2124481911306854726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4456,7 +4456,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2684523393940847807}
-  m_Layer: 0
+  - component: {fileID: 3288428026584146144}
+  m_Layer: 7
   m_Name: Furniture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4481,6 +4482,29 @@ Transform:
   - {fileID: 1271254752350136838}
   m_Father: {fileID: 3386307338782360871}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &3288428026584146144
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4836327224061804188}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.26174846
+  m_Height: 0.78284234
+  m_Direction: 1
+  m_Center: {x: 0.2367778, y: 0.26243418, z: 0.24494192}
 --- !u!1 &8529516107897602205
 GameObject:
   m_ObjectHideFlags: 0
@@ -4495,7 +4519,7 @@ GameObject:
   - component: {fileID: 8410522422158805413}
   - component: {fileID: 7242485216939558241}
   - component: {fileID: 239256647996704137}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

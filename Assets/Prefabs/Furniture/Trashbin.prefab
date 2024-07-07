@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 242600054342808780}
   - component: {fileID: 9194078085226067828}
   - component: {fileID: 1094495872583191180}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1847,7 +1847,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 647094799610263321}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Furniture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1884,7 +1884,7 @@ GameObject:
   - component: {fileID: 2037867390387424804}
   - component: {fileID: 4155035479999218286}
   - component: {fileID: 1564818403433407152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2019,7 +2019,7 @@ GameObject:
   - component: {fileID: 9031444687063867413}
   - component: {fileID: 733366371026746659}
   - component: {fileID: 9207309028238278242}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2154,7 +2154,7 @@ GameObject:
   - component: {fileID: 6881037473817965212}
   - component: {fileID: 4855897597253044767}
   - component: {fileID: 4069623326881114011}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2285,7 +2285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 77258957857945496}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Contents
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2320,7 +2320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6781537826964091534}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Trashbin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2358,7 +2358,7 @@ GameObject:
   - component: {fileID: 615547003251321790}
   - component: {fileID: 8264406252180152305}
   - component: {fileID: 4757577914117670914}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pipe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4934,7 +4934,7 @@ GameObject:
   - component: {fileID: 3643488357113475676}
   - component: {fileID: 7189338496596566068}
   - component: {fileID: 3145716542491890813}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
