@@ -41,6 +41,13 @@ public class EventNames {
         public const string ON_PLAYER_SPRINT = "ON_PLAYER_SPRINT";
         public const string ON_PLAYER_SPRINT_ENDED = "ON_PLAYER_SPRINT_ENDED";
     }
+
+
+    public class UI_EVENTS
+    {
+        public const string ON_JOURNAL_INVOCATION = "ON_JOURNAL_INVOCATION";
+    }
+
 }
 
 

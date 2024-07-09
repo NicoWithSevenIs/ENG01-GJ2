@@ -109,7 +109,7 @@ public class StaminaBar : MonoBehaviour
         Vector2 to = r.sizeDelta;
         to.x = x;
 
-        LTDescr tween = LeanTween.value(gameObject, from, to, duration).setOnUpdate((Vector2 v) => r.sizeDelta = v).setEaseInOutCubic();
+        LTDescr tween = LeanTween.value(gameObject, from, to, duration).setOnUpdate((Vector2 v) => r.sizeDelta = v).setEaseInOutCubic().setIgnoreTimeScale(true);
         return tween;
     }
 

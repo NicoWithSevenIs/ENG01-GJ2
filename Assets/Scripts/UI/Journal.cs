@@ -7,9 +7,11 @@ using UnityEngine.UI;
 public class Journal : MonoBehaviour
 {
     [SerializeField] private Transform pageContainer;
-    [SerializeField] private RectTransform next;
-    [SerializeField] private RectTransform prev;
 
+    [SerializeField] private RectTransform next;
+
+    [SerializeField] private RectTransform prev;
+ 
     [SerializeField] private int currentPage;
 
     private List<RectTransform> pageObjects;
@@ -46,7 +48,8 @@ public class Journal : MonoBehaviour
 
         prev.gameObject.SetActive(currentPage > 0);
         next.gameObject.SetActive(currentPage < pageObjects.Count - 1);
-      
+
+
     }
 
     public void incrementPage()

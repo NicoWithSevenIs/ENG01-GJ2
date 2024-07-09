@@ -122,7 +122,7 @@ public class ProximityPromptUI : MonoBehaviour
     {
         LeanTween.cancel(keyFrameGUI);
 
-        LeanTween.scale(keyFrameGUI, Vector3.one * (value ? 1.3f : 1f), 0.35f);
+        LeanTween.scale(keyFrameGUI, Vector3.one * (value ? 1.3f : 1f), 0.35f).setIgnoreTimeScale(true);
 
         TweenAlpha(promiximityPromptFrameGUI.color.a, value ? 0f : 1f, promiximityPromptFrameGUI, 0.1f);
         TweenAlpha(actionTextGUI.color.a, value ? 0f : 1f, actionTextGUI, 0.1f);
@@ -165,7 +165,7 @@ public class ProximityPromptUI : MonoBehaviour
             Color c = image.color;
             c.a = value;
             image.color = c;
-        });
+        }).setIgnoreTimeScale(true);
     }
 
     private void TweenAlpha(float initial, float goal, TextMeshProUGUI text, float duration)
@@ -174,7 +174,7 @@ public class ProximityPromptUI : MonoBehaviour
             Color c = text.color;
             c.a = value;
             text.color = c;
-        });
+        }).setIgnoreTimeScale(true);
     }
 
 
