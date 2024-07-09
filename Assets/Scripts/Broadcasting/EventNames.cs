@@ -46,6 +46,8 @@ public class EventNames {
     public class UI_EVENTS
     {
         public const string ON_JOURNAL_INVOCATION = "ON_JOURNAL_INVOCATION";
+        public const string ON_PLAYER_NOTIFIED = "ON_PLAYER_NOTIFIED";
+        public const string ON_NOTIFICATION_ADDRESSED = "ON_NOTIFICATION_ADDRESSED";
     }
 
 }

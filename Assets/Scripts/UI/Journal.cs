@@ -7,12 +7,15 @@ using UnityEngine.UI;
 public class Journal : MonoBehaviour
 {
     [SerializeField] private Transform pageContainer;
+    [SerializeField] private Transform unlockableContainer;
+
 
     [SerializeField] private RectTransform next;
-
     [SerializeField] private RectTransform prev;
  
     [SerializeField] private int currentPage;
+
+    [SerializeField] private List<UnlockablePage> unlockablePages;
 
     private List<RectTransform> pageObjects;
 
@@ -28,11 +31,20 @@ public class Journal : MonoBehaviour
             pageObjects.Add(t.gameObject.GetComponent<RectTransform>());
         }
 
+        foreach (Transform t in unlockableContainer)
+        {
+            t.gameObject.SetActive(true);
+            CanvasGroup g = t.AddComponent<CanvasGroup>();
+            g.alpha = 0;
+        }
+
         next.GetComponent<Button>().onClick.AddListener(incrementPage);
         prev.GetComponent<Button>().onClick.AddListener(decrementPage);
 
         
         setPage(0);
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_FOUND, AddPage);
     }
 
 
@@ -60,6 +72,21 @@ public class Journal : MonoBehaviour
     public void decrementPage()
     {
         setPage(currentPage - 1);
+    }
+
+    public void AddPage()
+    {
+        if (unlockablePages.Count == 0)
+            return;
+
+        pageObjects.AddRange(unlockablePages[0].pages);
+        unlockablePages.RemoveAt(0);
+
+        setPage(currentPage);
+
+        Parameters p = new Parameters();
+        p.PutExtra("Notification", "Page Added");
+        EventBroadcaster.Instance.PostEvent(EventNames.UI_EVENTS.ON_PLAYER_NOTIFIED, p);
     }
 
 

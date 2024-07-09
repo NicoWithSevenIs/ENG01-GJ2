@@ -8,6 +8,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private GameObject mainUI;
     [SerializeField] private GameObject journalUI;
 
+    [SerializeField] private ItemUI itemUI;
     [SerializeField] private Button close;
 
     float hiddenYPos;
@@ -28,12 +29,21 @@ public class JournalManager : MonoBehaviour
     
     private void SetJournalActive(bool willShow, bool willTween)
     {
-           
+
+        print("Called");
+
         LeanTween.cancel(gameObject);
 
         isJournalActive = willShow;
         SetUIEnabled(!willShow, mainUI.GetComponent<CanvasGroup>());
 
+        if (willShow)
+        {
+            Parameters p = new Parameters();
+            p.PutExtra("Notification", "Page Added");
+            EventBroadcaster.Instance.PostEvent(EventNames.UI_EVENTS.ON_NOTIFICATION_ADDRESSED, p);
+        }
+            
 
         void setYPosition(float val)
         {
@@ -65,11 +75,11 @@ public class JournalManager : MonoBehaviour
 
     private void Update()
     {
-        //temp
-        if(Input.GetKeyDown(KeyCode.R) && isJournalActive)
-        {
+
+        if(Input.GetKeyDown(itemUI.KeyBind) && isJournalActive)
             SetJournalActive(false, true);
-        }
+        
+      
     }
 
 

@@ -18,6 +18,7 @@ public class ItemUI : MonoBehaviour
 
     [Header("Settings")]
     [SerializeField] private KeyCode keybind;
+    public KeyCode KeyBind { get { return keybind; } }
 
     [Header("Stats")]
     [SerializeField] private float cooldown = 1f;
