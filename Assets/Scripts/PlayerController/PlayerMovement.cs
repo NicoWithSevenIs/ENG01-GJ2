@@ -31,8 +31,8 @@ public class PlayerMovement : MonoBehaviour
         input = Vector2.zero;
         body = GetComponent<Rigidbody>();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
         _currentStamina = _maxStamina;
  
     }

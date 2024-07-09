@@ -62,14 +62,16 @@ public class FurnitureManager : MonoBehaviour
             } 
         );
 
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_REFRESHED, refreshPositions);
         
 
     }
 
 
-    public void refreshPositions(int count)
+    public void refreshPositions(Parameters p)
     {
- 
+
+        int count = p.GetIntExtra("RollCount", 0);
 
         if (count == 0)
         {

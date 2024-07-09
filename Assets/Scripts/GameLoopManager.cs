@@ -28,7 +28,10 @@ public class GameLoopManager : MonoBehaviour
         currentDuration = 0;
 
         remainingRolls = _rollCount;
-        FurnitureManager.Instance.refreshPositions(remainingRolls);
+
+        Parameters p = new Parameters();
+        p.PutExtra("RollCount", remainingRolls);
+        EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_REFRESHED, p);
 
 
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_FOUND, OnRollObtained);
@@ -42,11 +45,11 @@ public class GameLoopManager : MonoBehaviour
     {
         remainingRolls--;
 
-        if(remainingRolls > 0)
-        {
-            FurnitureManager.Instance.refreshPositions(remainingRolls);
-        }
-        else
+        Parameters p = new Parameters();
+        p.PutExtra("RollCount", remainingRolls);
+        EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_REFRESHED, p);
+
+        if (remainingRolls == 0)
         {
             EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_ALL_ROLLS_FOUND);
             StopAllCoroutines();

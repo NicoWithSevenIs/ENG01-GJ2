@@ -16,6 +16,7 @@ public class EventNames {
         //Loop
         public const string ON_FURNITURE_INSPECTION = "ON_FURNITURE_INSPECTION"; 
         public const string ON_MUSIC_ROLL_FOUND = "ON_MUSIC_ROLL_FOUND";
+        public const string ON_MUSIC_ROLL_REFRESHED = "ON_MUSIC_ROLL_REFERSHED"; //Rolls are relocated
         public const string ON_HOUR_PASSED = "ON_HOUR_PASSED";
 
         //Win Con
