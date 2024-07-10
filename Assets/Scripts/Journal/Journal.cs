@@ -79,10 +79,12 @@ public class Journal : MonoBehaviour
         if (unlockablePages.Count == 0)
             return;
 
+        int countBeforeAdding = pageObjects.Count;
+
         pageObjects.AddRange(unlockablePages[0].pages);
         unlockablePages.RemoveAt(0);
 
-        setPage(currentPage);
+        setPage(countBeforeAdding);
 
         Parameters p = new Parameters();
         p.PutExtra("Notification", "Page Added");
