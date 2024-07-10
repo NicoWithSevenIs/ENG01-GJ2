@@ -157,7 +157,7 @@ MonoBehaviour:
   keyTextGUI: {fileID: 2229816307177547843}
   actionTextGUI: {fileID: 2391322864208334405}
   progressGUI: {fileID: 6400115537730988328}
-  holdDuration: 5
+  holdDuration: 7
   onCompletion:
     m_PersistentCalls:
       m_Calls:
@@ -648,7 +648,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5460ef6e940a6a4fb72b6c555a63e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hasMusicRoll: 0
 --- !u!114 &1456923721974122635
 MonoBehaviour:
   m_ObjectHideFlags: 0
