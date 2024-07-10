@@ -17,15 +17,22 @@ public class ItemUI : MonoBehaviour
 
 
     [Header("Settings")]
+    [SerializeField] private string ItemName;
     [SerializeField] private KeyCode keybind;
     public KeyCode KeyBind { get { return keybind; } }
 
     [Header("Stats")]
     [SerializeField] private float cooldown = 1f;
     private float currentCooldown;
+    [SerializeField] private bool initiateCooldownOnUse = true;
+    private bool willTickDown = false;
+
 
     [Header("Events")]
     public UnityEvent onActivation;
+
+
+    
 
     private void Start()
     {
@@ -33,13 +40,22 @@ public class ItemUI : MonoBehaviour
         keybindUI.text = keybind.ToString();
         cooldownUI.fillAmount = 0;
         currentCooldown = 0f;
+
+        EventBroadcaster.Instance.AddObserver(EventNames.UI_EVENTS.ON_COOLDOWN_INVOCATION, (Parameters p) => {
+
+            if (p.GetStringExtra("ItemName", "") == ItemName && currentCooldown == cooldown)
+                willTickDown = true;
+        
+        });
+
     }
 
     private void Update()
     {
 
         cooldownUI.fillAmount = currentCooldown / cooldown;
-        if (currentCooldown > 0)
+
+        if (currentCooldown > 0 && willTickDown)
         {
             currentCooldown -= Time.deltaTime;
             return;
@@ -49,9 +65,12 @@ public class ItemUI : MonoBehaviour
         {
             onActivation?.Invoke();
             currentCooldown = cooldown;
+
+            willTickDown = initiateCooldownOnUse;
         }
     }
 
+ 
     
 
 }

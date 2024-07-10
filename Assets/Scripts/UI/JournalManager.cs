@@ -8,7 +8,7 @@ public class JournalManager : MonoBehaviour
     [SerializeField] private GameObject mainUI;
     [SerializeField] private GameObject journalUI;
 
-    [SerializeField] private ItemUI itemUI;
+    [SerializeField] private KeyCode closeKey;
     [SerializeField] private Button close;
 
     float hiddenYPos;
@@ -76,7 +76,7 @@ public class JournalManager : MonoBehaviour
     private void Update()
     {
 
-        if(Input.GetKeyDown(itemUI.KeyBind) && isJournalActive)
+        if(Input.GetKeyDown(closeKey) && isJournalActive)
             SetJournalActive(false, true);
         
       
