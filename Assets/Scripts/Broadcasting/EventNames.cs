@@ -21,7 +21,7 @@ public class EventNames {
 
      
         public const string ON_TIMES_UP = "ON_TIMES_UP";
-        public const string ON_PLAYER_CAPTURED = "ON_GAME_OVER";
+        public const string ON_GAME_OVER = "ON_GAME_OVER";
 
     }
 

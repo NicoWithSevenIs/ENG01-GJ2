@@ -6,7 +6,7 @@ using UnityEngine;
 public class Lamp : MonoBehaviour
 {
     [SerializeField] private GameObject[] emittables;
-    [SerializeField] private Light l;
+    [SerializeField] private GameObject l;
     [SerializeField] private bool turnedOnByDefault = false;
 
     private bool _isTurnedOn = true;
@@ -21,10 +21,14 @@ public class Lamp : MonoBehaviour
     public void flipSwitch()
     {
         isTurnedOn = !isTurnedOn;
+        setTurnedOn(isTurnedOn);
+    }
 
-        l.enabled = isTurnedOn;
+    public void setTurnedOn(bool value)
+    {
+        l.SetActive(isTurnedOn);
 
-        foreach(var emittable in emittables)
+        foreach (var emittable in emittables)
         {
             Material mat = emittable.GetComponent<MeshRenderer>().material;
 
@@ -32,6 +36,5 @@ public class Lamp : MonoBehaviour
                 mat.EnableKeyword("_EMISSION");
             else mat.DisableKeyword("_EMISSION");
         }
-
     }
 }

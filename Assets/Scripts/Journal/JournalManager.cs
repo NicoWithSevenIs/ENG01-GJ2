@@ -30,8 +30,6 @@ public class JournalManager : MonoBehaviour
     private void SetJournalActive(bool willShow, bool willTween)
     {
 
-        print("Called");
-
         LeanTween.cancel(gameObject);
 
         isJournalActive = willShow;

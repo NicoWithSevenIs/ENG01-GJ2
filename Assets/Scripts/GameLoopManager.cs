@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class GameLoopManager : MonoBehaviour
 {
 
-
     [Header("References")]
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemy;
@@ -34,29 +33,30 @@ public class GameLoopManager : MonoBehaviour
 
         Parameters p = new Parameters();
         p.PutExtra("RollCount", remainingRolls);
+
         EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_REFRESHED, p);
-
-
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_FOUND, OnRollObtained);
 
 
-        ListenForGameOver();
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER, (Parameters p) => {
+
+            bool hasWon = p.GetBoolExtra("HasPlayerWon", true);
+
+            //Promity Prompt disabling is handled on ProximityPromptWorld.cs
+            enemy.SetActive(false);
+            player.GetComponent<PlayerMovement>().enabled = false;
+
+            if (hasWon)
+            {
+                Debug.Log("Yippie");
+            }
+
+        });
+
+ 
 
         StartCoroutine(GameTimer());
-    }
-
-    private void ListenForGameOver()
-    {
-
-        void DisableEverything()
-        {
-
-        }
-    
-
-        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_ALL_ROLLS_FOUND, () => { });
-        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_PLAYER_CAPTURED, () => { });
-
     }
 
 
@@ -70,9 +70,9 @@ public class GameLoopManager : MonoBehaviour
 
         if (remainingRolls == 0)
         {
-            Paramaters w = new Paramaters();
-
-            EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER);
+            Parameters w = new Parameters();
+            w.PutExtra("HasPlayerWon", true);
+            EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER, w);
             StopAllCoroutines();
         }
 

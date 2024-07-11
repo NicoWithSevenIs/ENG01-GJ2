@@ -40,7 +40,7 @@ public class StunGunManager : MonoBehaviour
             enemy.GetComponent<Light>().enabled = !value;
             enemy.GetComponent<SpriteRenderer>().color = value ? Color.white : Color.red;
             //set enemy state machine here
-
+            enemy.GetComponent<CapsuleCollider>().enabled = value;
             agent.speed = value ? enemyWalkSpeed : 0f;  
         }
 

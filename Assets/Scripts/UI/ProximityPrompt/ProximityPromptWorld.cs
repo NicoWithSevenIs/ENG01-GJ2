@@ -14,8 +14,7 @@ public class ProximityPromptWorld : MonoBehaviour
         ui = proximityPrompt.GetComponent<ProximityPromptUI>();
         ui.setPlayerInRange(false);
 
-        EventBroadcaster.Instance.AddObserver(EventNames)
-
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER, (Parameters p) => canvas.enabled = false);
     }
     private void LateUpdate()
     {
