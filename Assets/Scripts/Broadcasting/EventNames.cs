@@ -19,12 +19,9 @@ public class EventNames {
         public const string ON_MUSIC_ROLL_REFRESHED = "ON_MUSIC_ROLL_REFERSHED"; //Rolls are relocated
         public const string ON_HOUR_PASSED = "ON_HOUR_PASSED";
 
-        //Win Con
-        public const string ON_ALL_ROLLS_FOUND = "ON_ALL_ROLLS_FOUND";
-
-        //Lose Con
+     
         public const string ON_TIMES_UP = "ON_TIMES_UP";
-        public const string ON_PLAYER_CAPTURED = "ON_PLAYER_CAPTURED";
+        public const string ON_PLAYER_CAPTURED = "ON_GAME_OVER";
 
     }
 

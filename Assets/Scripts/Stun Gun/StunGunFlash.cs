@@ -6,14 +6,18 @@ using UnityEngine.UI;
 
 public class StunGunFlash : MonoBehaviour
 {
-    [SerializeField] private Image flashScreen;
+    
     [SerializeField] private float flashDuration;
 
     [SerializeField] private float alphaCeiling = 1f;
     [SerializeField] private float alphaFloor = 0f;
-  
+
+
+    private Image flashScreen;
     private void Start()
     {
+        flashScreen = GetComponent<Image>();
+
         EventBroadcaster.Instance.AddObserver(EventNames.UI_EVENTS.ON_STUN_GUN_INVOCATION, () => {        
             StopAllCoroutines();
             LeanTween.cancel(gameObject);

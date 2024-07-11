@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameLoopManager : MonoBehaviour
 {
 
-    private int currentHour = 12;
 
-
+    [Header("References")]
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject enemy;
 
     [Header("Duration")]
     [SerializeField] private int hourDuration = 60;
     [SerializeField] private int totalHours = 6;
     private int totalDuration; //total duration in seconds
+    private int currentHour = 12;
 
     [SerializeField] private int currentDuration;
 
@@ -37,7 +40,23 @@ public class GameLoopManager : MonoBehaviour
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_FOUND, OnRollObtained);
 
 
+        ListenForGameOver();
+
         StartCoroutine(GameTimer());
+    }
+
+    private void ListenForGameOver()
+    {
+
+        void DisableEverything()
+        {
+
+        }
+    
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_ALL_ROLLS_FOUND, () => { });
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_PLAYER_CAPTURED, () => { });
+
     }
 
 
@@ -51,7 +70,9 @@ public class GameLoopManager : MonoBehaviour
 
         if (remainingRolls == 0)
         {
-            EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_ALL_ROLLS_FOUND);
+            Paramaters w = new Paramaters();
+
+            EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER);
             StopAllCoroutines();
         }
 
