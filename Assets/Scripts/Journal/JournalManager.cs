@@ -7,12 +7,15 @@ public class JournalManager : MonoBehaviour
 {
     [SerializeField] private GameObject mainUI;
     [SerializeField] private GameObject journalUI;
+    [SerializeField] private GameObject dialogueUI;
 
     [SerializeField] private KeyCode closeKey;
     [SerializeField] private Button close;
 
-    float hiddenYPos;
-    bool isJournalActive;
+    private float hiddenYPos;
+    private bool isJournalActive;
+
+    private bool isFirstDisable = true;
 
     private void Start()
     {
@@ -23,10 +26,11 @@ public class JournalManager : MonoBehaviour
 
         close.onClick.AddListener(() => SetJournalActive(false, true));
 
-        SetJournalActive(false, false);
+        LeanTween.delayedCall(0.5f, () => SetJournalActive(true, true));
     }
 
     
+   
     private void SetJournalActive(bool willShow, bool willTween)
     {
 
@@ -34,6 +38,7 @@ public class JournalManager : MonoBehaviour
 
         isJournalActive = willShow;
         SetUIEnabled(!willShow, mainUI.GetComponent<CanvasGroup>());
+        dialogueUI.GetComponent<DialogueText>()?.setVisible(!willShow);
 
         if (willShow)
         {
@@ -67,6 +72,12 @@ public class JournalManager : MonoBehaviour
 
         //Cursor.visible = !willShow;
         Cursor.lockState = willShow ? CursorLockMode.None : CursorLockMode.Locked;
+
+        if (isFirstDisable)
+        {
+            EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_GAME_STARTED);
+            isFirstDisable = false;
+        }
 
  
     }

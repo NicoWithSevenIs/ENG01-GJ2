@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
     public bool IsRunning { get { return _isRunning;} }
 
 
+    private bool canRun = true;
+    private bool canMove = false;
+
+
     private void Start()
     {
         totalVelocity = Vector3.zero;
@@ -33,7 +37,13 @@ public class PlayerMovement : MonoBehaviour
 
 
         _currentStamina = _maxStamina;
- 
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_GAME_STARTED, () => canMove = true );
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER, () => canMove = false );
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_TIMES_UP, () => canRun = false );
+
     }
 
     private Vector3 previousVelocity = Vector3.zero;
@@ -66,11 +76,20 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        input = context.ReadValue<Vector2>();
+
+        if (canMove)
+        {
+            input = context.ReadValue<Vector2>();
+        }
+        
     }
 
     public void Run(InputAction.CallbackContext context)
     {
+
+        if (!canRun)
+            return;
+
         if (context.started && _currentStamina > 0 && isSpeedingUp())
         {
             _isRunning = true;

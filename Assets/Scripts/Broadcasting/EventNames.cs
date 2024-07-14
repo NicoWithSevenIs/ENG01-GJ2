@@ -30,6 +30,8 @@ public class EventNames {
         public const string ON_DIALOGUE_INSERTION = "ON_DIALOGUE_INSERTION";
         public const string ON_DIALOGUE_INVOCATION = "ON_DIALOGUE_INVOCATION";
         public const string ON_DIALOGUE_ENDED = "ON_DIALOGUE_ENDED";
+        public const string ON_TRUNCATE_DIALOGUE = "ON_TRUNCATE_DIALOGUE";
+
     }
 
     public class PLAYER_ACTIONS

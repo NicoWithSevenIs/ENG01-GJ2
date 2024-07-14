@@ -22,22 +22,28 @@ public class JumpscareManager : MonoBehaviour
 
     private void Start()
     {
-        void TweenRedScreen()
-        {
-            LeanTween.cancel(gameObject);
-            LeanTween.delayedCall(redScreenDelay, () =>
-            {
-                LeanTween.value(gameObject, 0f,  1f, redScreenTweenDuration).setOnUpdate((float f) => { 
+
+        AudioManager.instance.PlaySound2D("Jumpscare", () => {
+
+
+            LeanTween.delayedCall(redScreenDelay, () => {
+
+                LeanTween.value(gameObject, 0f, 1f, redScreenTweenDuration).setOnUpdate((float f) =>
+                {
                     Color c = redScreen.color;
                     c.a = f;
                     redScreen.color = c;
                 }).setEaseOutBack();
+
             });
-        }
+
+        });
+
+   
 
         void TweenGhost()
         {
-            LeanTween.value(gameObject, ghost.localScale, ghost.localScale * scaleMultiplier, tweenDuration).setOnUpdate((Vector3 v) => ghost.localScale = v).setEaseOutQuint().setOnComplete(TweenRedScreen);
+            LeanTween.value(gameObject, ghost.localScale, ghost.localScale * scaleMultiplier, tweenDuration).setOnUpdate((Vector3 v) => ghost.localScale = v).setEaseOutQuint();
         }
 
         LeanTween.delayedCall(delay, TweenGhost);

@@ -47,16 +47,16 @@ public class GameLoopManager : MonoBehaviour
             enemy.SetActive(false);
             player.GetComponent<PlayerMovement>().enabled = false;
 
-            if (hasWon)
-            {
-                Debug.Log("Yippie");
-            }
-
         });
 
- 
 
-        StartCoroutine(GameTimer());
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_GAME_STARTED, () => StartCoroutine(GameTimer()));
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_TIMES_UP, () => {
+            EventBroadcaster.Instance.PostEvent(EventNames.DIALOGUE_EVENTS.ON_TRUNCATE_DIALOGUE);
+            GetComponent<StandardDialogue>().TriggerDialogue();
+            LeanTween.delayedCall(1.5f, () => EventBroadcaster.Instance.PostEvent(EventNames.UI_EVENTS.ON_FLASHLIGHT_INVOCATION) );
+        });
     }
 
 

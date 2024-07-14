@@ -14,8 +14,12 @@ public class Lamp : MonoBehaviour
 
     private void Start()
     {
-        if(!turnedOnByDefault)
-            flipSwitch();
+        if (!turnedOnByDefault)
+            setTurnedOn(false);
+
+        isTurnedOn = turnedOnByDefault;
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_TIMES_UP, () => setTurnedOn(false));
     }
 
     public void flipSwitch()
@@ -26,13 +30,13 @@ public class Lamp : MonoBehaviour
 
     public void setTurnedOn(bool value)
     {
-        l.SetActive(isTurnedOn);
+        l.SetActive(value);
 
         foreach (var emittable in emittables)
         {
             Material mat = emittable.GetComponent<MeshRenderer>().material;
 
-            if (isTurnedOn)
+            if (value)
                 mat.EnableKeyword("_EMISSION");
             else mat.DisableKeyword("_EMISSION");
         }

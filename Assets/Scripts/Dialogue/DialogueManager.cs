@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
         EventBroadcaster.Instance.AddObserver(EventNames.DIALOGUE_EVENTS.ON_DIALOGUE_INSERTION, AddLines);
         dialogueDeque = new Queue<string>();
         willDisplayNext = true;
+
+        EventBroadcaster.Instance.AddObserver(EventNames.DIALOGUE_EVENTS.ON_TRUNCATE_DIALOGUE, () => dialogueDeque.Clear() );
     }
 
     private void Update()
