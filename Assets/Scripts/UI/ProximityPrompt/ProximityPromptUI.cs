@@ -32,6 +32,8 @@ public class ProximityPromptUI : MonoBehaviour
 
     [Header("Actions")]
     public UnityEvent onCompletion;
+    public UnityEvent onActivationStarted;
+    public UnityEvent onActivationAborted;
 
     // [Components] //
 
@@ -81,13 +83,17 @@ public class ProximityPromptUI : MonoBehaviour
             return;
             
         if (Input.GetKeyUp(actionKey))
-        {
+        {   
             isKeyHeld = false;
 
             if (isToggle)
                 isActivatable = true;
         }
 
+        if(Input.GetKeyDown(actionKey) && holdTime < holdDuration && isActivatable)
+        {
+            onActivationStarted?.Invoke();
+        }
 
         if (Input.GetKey(actionKey))
         {
@@ -111,6 +117,12 @@ public class ProximityPromptUI : MonoBehaviour
             isActivatable = false;
             holdTime = 0f;
             onCompletion?.Invoke();
+        }else if(holdTime < holdDuration) {
+            if (Input.GetKeyUp(actionKey))
+            {
+                print("Aborted");
+                onActivationAborted?.Invoke();
+            }
         }
         
         
