@@ -12,6 +12,7 @@ public class CanvasManager : MonoBehaviour
     [Header("Game Over Screen")]
     [SerializeField] private GameObject winScreen;
     [SerializeField] private GameObject loseScreen;
+    [SerializeField] private GameObject gameOverScreen;
 
     [SerializeField] private List<GameObject> disableOnAwake;
 
@@ -21,10 +22,13 @@ public class CanvasManager : MonoBehaviour
         GameCanvas.gameObject.SetActive(true);
         EndScreen.gameObject.SetActive(true);
 
+      
+
         disableOnAwake.ForEach(e => e.SetActive(false));
 
         winScreen.SetActive(false);
         loseScreen.SetActive(false);
+        gameOverScreen.SetActive(true);
 
         GameCanvas.enabled = true;
         EndScreen.enabled = false;

@@ -19,12 +19,24 @@ public class JumpscareManager : MonoBehaviour
     [Range(0f, 1f)][SerializeField] private float redScreenDelay = 0.3f;
     [Range(0f, 1f)][SerializeField] private float redScreenTweenDuration = 0.3f;
 
+    [Header("Game Over Screen")]
+    [SerializeField] private float gameOverScreenDelay = 1f;
 
     private void Start()
     {
+        void InvokeGameOverScreen()
+        {
+            LeanTween.delayedCall(gameOverScreenDelay, () =>
+            {
+                Parameters p = new Parameters();
+                p.PutExtra("HasWon", false);
+                EventBroadcaster.Instance.PostEvent(EventNames.UI_EVENTS.ON_GAME_OVER_SCREEN_INVOCATION, p);
+            });
+        }
 
-        AudioManager.instance.PlaySound2D("Jumpscare", () => {
 
+        void InvokeRedScreen()
+        {
 
             LeanTween.delayedCall(redScreenDelay, () => {
 
@@ -33,11 +45,12 @@ public class JumpscareManager : MonoBehaviour
                     Color c = redScreen.color;
                     c.a = f;
                     redScreen.color = c;
-                }).setEaseOutBack();
+                }).setEaseOutBack().setOnComplete(InvokeGameOverScreen);
 
             });
+        }
 
-        });
+        AudioManager.instance.PlaySound2D("Jumpscare", InvokeRedScreen);
 
    
 

@@ -57,6 +57,9 @@ public class GameLoopManager : MonoBehaviour
             GetComponent<StandardDialogue>().TriggerDialogue();
             LeanTween.delayedCall(1.5f, () => EventBroadcaster.Instance.PostEvent(EventNames.UI_EVENTS.ON_FLASHLIGHT_INVOCATION) );
         });
+
+        EventBroadcaster.Instance.AddObserver(EventNames.APPLICATION_EVENTS.ON_BACK_TO_MENU, ApplicationActions.BackToMenu);
+        EventBroadcaster.Instance.AddObserver(EventNames.APPLICATION_EVENTS.ON_EXIT, ApplicationActions.Quit);
     }
 
 
@@ -122,7 +125,7 @@ public class GameLoopManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            EventBroadcaster.Instance.RemoveAllObservers();
+            //EventBroadcaster.Instance.RemoveAllObservers();
         } else Destroy(gameObject);
     }
     #endregion

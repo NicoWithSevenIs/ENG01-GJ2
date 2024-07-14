@@ -8,6 +8,7 @@ public class Lamp : MonoBehaviour
     [SerializeField] private GameObject[] emittables;
     [SerializeField] private GameObject l;
     [SerializeField] private bool turnedOnByDefault = false;
+    [SerializeField] private AudioSource sfx;
 
     private bool _isTurnedOn = true;
     public bool isTurnedOn { get { return _isTurnedOn; } set { _isTurnedOn = value; } }
@@ -40,5 +41,16 @@ public class Lamp : MonoBehaviour
                 mat.EnableKeyword("_EMISSION");
             else mat.DisableKeyword("_EMISSION");
         }
+
+        if (value)
+            sfx.Play();
+        else sfx.Stop();
     }
+
+    public void OnFlip()
+    {
+        print("Flipped");
+        AudioManager.instance.PlaySound2D("Switch");
+    }
+
 }

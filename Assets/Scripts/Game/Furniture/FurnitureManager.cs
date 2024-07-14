@@ -63,7 +63,6 @@ public class FurnitureManager : MonoBehaviour
         );
 
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_REFRESHED, refreshPositions);
-        
 
     }
 
@@ -71,6 +70,7 @@ public class FurnitureManager : MonoBehaviour
     public void refreshPositions(Parameters p)
     {
 
+        print("Refershed");
         int count = p.GetIntExtra("RollCount", 0);
 
         if (count == 0)

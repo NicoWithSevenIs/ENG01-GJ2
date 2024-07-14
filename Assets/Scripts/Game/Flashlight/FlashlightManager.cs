@@ -20,6 +20,8 @@ public class FlashlightManager : MonoBehaviour
     //flashlight actually lasts 1 second longer as the strong flickers dont count towards the total active duration
     private IEnumerator turnOnFlashlight()
     {
+        AudioManager.instance.PlaySound2D("Flashlight");
+
         IEnumerator flicker(float interval, int amount, bool willTurnOff)
         {
             for(int i =0; i < amount; i++)
@@ -58,6 +60,7 @@ public class FlashlightManager : MonoBehaviour
         Parameters p = new Parameters();
         p.PutExtra("ItemName", "Flashlight");
         EventBroadcaster.Instance.PostEvent(EventNames.UI_EVENTS.ON_COOLDOWN_INVOCATION, p);
+
     }
 
 }

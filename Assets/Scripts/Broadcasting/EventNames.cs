@@ -54,6 +54,14 @@ public class EventNames {
 
         public const string ON_COOLDOWN_INVOCATION = "ON_COOLDOWN_INVOCATION";
 
+        public const string ON_GAME_OVER_SCREEN_INVOCATION = "ON_GAME_OVER_SCREEN_INVOCATION";
+    }
+
+    public class APPLICATION_EVENTS
+    {
+        public const string ON_PLAY = "ON_PLAY";
+        public const string ON_BACK_TO_MENU = "ON_BACK_TO_MENU";
+        public const string ON_EXIT = "ON_EXIT";
     }
 
 }
