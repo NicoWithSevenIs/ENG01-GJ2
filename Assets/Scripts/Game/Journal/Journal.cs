@@ -50,7 +50,7 @@ public class Journal : MonoBehaviour
 
     private void setPage(int page)
     {
-
+        AudioManager.instance.PlaySound2D("Page Turn");
         currentPage = Mathf.Clamp(page, 0, pageObjects.Count - 1);
 
        

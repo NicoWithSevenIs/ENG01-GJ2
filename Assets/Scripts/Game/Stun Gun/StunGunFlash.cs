@@ -21,6 +21,7 @@ public class StunGunFlash : MonoBehaviour
         EventBroadcaster.Instance.AddObserver(EventNames.UI_EVENTS.ON_STUN_GUN_INVOCATION, () => {        
             StopAllCoroutines();
             LeanTween.cancel(gameObject);
+            AudioManager.instance.PlaySound2D("Zap");
             TweenFlash(alphaFloor, alphaCeiling, 0.2f).setOnComplete(() => StartCoroutine(DelayedReversal()));
         });
 
