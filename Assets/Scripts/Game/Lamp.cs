@@ -25,12 +25,14 @@ public class Lamp : MonoBehaviour
 
     public void flipSwitch()
     {
-        isTurnedOn = !isTurnedOn;
-        setTurnedOn(isTurnedOn);
+        setTurnedOn(!isTurnedOn);
     }
 
     public void setTurnedOn(bool value)
     {
+
+        _isTurnedOn = value;
+
         l.SetActive(value);
 
         foreach (var emittable in emittables)

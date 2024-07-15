@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemySensor : MonoBehaviour
 {
-    private GameObject _player = null;
+    [SerializeField] private GameObject _player = null;
     public GameObject Player { get { return _player; } }
 
-    private List<Lamp> _targetLamps;
+    [SerializeField] private List<Lamp> _targetLamps;
 
     public List<Lamp> TargetLamps { get { return _targetLamps; } }
 
@@ -25,7 +25,7 @@ public class EnemySensor : MonoBehaviour
             return;
         }
 
-        Lamp lamp = other.GetComponent<Lamp>();
+        Lamp lamp = other.gameObject.GetComponent<Lamp>();
 
         if(lamp != null)
             _targetLamps.Add(lamp);

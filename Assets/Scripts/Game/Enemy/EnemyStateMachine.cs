@@ -26,7 +26,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private enum EnemyState { Roaming, Investigating, Chasing, TurningOff};
 
-    private EnemyState currentState = EnemyState.Roaming;
+    [SerializeField] private EnemyState currentState = EnemyState.Roaming;
 
     private void Start()
     {
@@ -34,8 +34,28 @@ public class EnemyStateMachine : MonoBehaviour
         agent = enemy.GetComponent<NavMeshAgent>();
         waypoints = GetComponent<WaypointManager>();
 
+        void SpawnEnemy()
+        {
+            if (enemy.activeInHierarchy)
+                return;
 
-        //EventBroadcaster.Instance.AddObserver(EventNames.)
+            List<Transform> waypointList = waypoints.getAllWaypointFromDistanceN(waypoints.getNearestWaypoint(player.transform.position), 2);
+            enemy.transform.position = waypointList[Random.Range(0, waypointList.Count)].position;
+            enemy.SetActive(true);
+
+            GetComponent<StandardDialogue>().TriggerDialogue();
+        }
+
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_HOUR_PASSED, (Parameters p) => {
+            if (p.GetIntExtra("CurrentHour", 1) == 1)
+                SpawnEnemy();
+        });
+
+        EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_REFRESHED, (Parameters p) => { 
+            if(p.GetIntExtra("RollCount", 1) == 3)
+                SpawnEnemy(); 
+        });
     }
 
 
@@ -49,12 +69,7 @@ public class EnemyStateMachine : MonoBehaviour
         {
             case EnemyState.Roaming: Roam(); break;
             case EnemyState.Chasing: ChasePlayer(); break;
-            case EnemyState.TurningOff:
-
-                if(TurnOffAction == null)
-                    StartCoroutine(turnOffLamp());
-                 
-                break;
+            case EnemyState.TurningOff: TurnOffLamp(); break;
         }
 
 
@@ -91,7 +106,11 @@ public class EnemyStateMachine : MonoBehaviour
 
                 Lamp lamp = _targetWaypoint.GetComponent<Lamp>();
                 if (lamp.isTurnedOn)
+                {
+                    _targetLamp = lamp;
                     currentState = EnemyState.TurningOff;
+                }
+                    
                 else _targetWaypoint = null;
             }
                 
@@ -115,18 +134,31 @@ public class EnemyStateMachine : MonoBehaviour
         {
             if (lamp.isTurnedOn)
             {
-                _targetLamp = lamp;
-                currentState = EnemyState.TurningOff;
+
+                agent.SetDestination(lamp.transform.position);
+
+
+                if (Vector3.Distance(lamp.transform.position, enemy.transform.position) < 2f)
+                {
+                    _targetLamp = lamp;
+                    currentState = EnemyState.TurningOff;
+                }
+                
                 break;
             }
         }
 
     }
 
+
+    private void TurnOffLamp()
+    {
+        if (TurnOffAction == null)
+            TurnOffAction = StartCoroutine(turnOffLamp());
+    }
+
     private IEnumerator turnOffLamp()
     {
-        if (_targetLamp == null)
-            yield break;
 
         agent.isStopped = true;
         agent.velocity = Vector3.zero;
@@ -134,8 +166,8 @@ public class EnemyStateMachine : MonoBehaviour
 
         yield return new WaitForSeconds(turnOffLampDuration);
 
-        if(_targetLamp != null)
-            _targetLamp.setTurnedOn(false);
+
+        _targetLamp.setTurnedOn(false);
         
 
         agent.isStopped = false;
@@ -150,6 +182,7 @@ public class EnemyStateMachine : MonoBehaviour
         }
 
         TurnOffAction = null;
+        _targetLamp = null;
         _targetWaypoint = null;
     }
 

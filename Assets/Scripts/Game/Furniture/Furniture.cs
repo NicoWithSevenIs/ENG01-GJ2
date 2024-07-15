@@ -6,7 +6,7 @@ public class Furniture : MonoBehaviour
 {
     private bool _hasMusicRoll = false;
     public  bool hasMusicRoll { get { return _hasMusicRoll; } set { _hasMusicRoll = value; } }
-    
+
     public void Inspect()
     {
 
@@ -31,4 +31,5 @@ public class Furniture : MonoBehaviour
          
             
     }
+
 }
