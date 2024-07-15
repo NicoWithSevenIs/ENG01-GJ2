@@ -24,7 +24,7 @@ public class EnemyStateMachine : MonoBehaviour
     Coroutine TurnOffAction = null;
 
 
-    private enum EnemyState { Roaming, Investigating, Chasing, TurningOff};
+    private enum EnemyState { Roaming, Chasing, TurningOff};
 
     [SerializeField] private EnemyState currentState = EnemyState.Roaming;
 
