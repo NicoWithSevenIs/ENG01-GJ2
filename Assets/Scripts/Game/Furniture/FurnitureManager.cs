@@ -69,8 +69,6 @@ public class FurnitureManager : MonoBehaviour
 
     public void refreshPositions(Parameters p)
     {
-
-        print("Refershed");
         int count = p.GetIntExtra("RollCount", 0);
 
         if (count == 0)

@@ -59546,7 +59546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4008446308525600361, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
       propertyPath: holdDuration
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4008446308525600361, guid: 50da8dc4cc5ba5a48a9c520479a593f4, type: 3}
       propertyPath: onCompletion.m_PersistentCalls.m_Calls.Array.size

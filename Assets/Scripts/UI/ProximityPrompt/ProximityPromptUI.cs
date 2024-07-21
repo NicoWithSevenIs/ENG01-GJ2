@@ -75,8 +75,29 @@ public class ProximityPromptUI : MonoBehaviour
       
     }
 
+   
+    private bool canBeActivated()
+    {
+        bool withinBounds(float value)
+        {
+            return value >= 0 && value <= 1;
+        }
+        Vector3 viewportCoord = Camera.main.WorldToViewportPoint(transform.position);
+
+       
+
+        bool withinCamera = withinBounds(viewportCoord.x) && withinBounds(viewportCoord.y) && viewportCoord.z > 0;
+
+
+
+        return Input.GetKeyDown(actionKey) && holdTime < holdDuration && isActivatable && withinCamera;
+    }
+   
+
     private void Update()
     {
+
+
         progressGUI.fillAmount = holdTime / holdDuration;
 
         if (!playerInRange)
@@ -90,20 +111,27 @@ public class ProximityPromptUI : MonoBehaviour
                 isActivatable = true;
         }
 
-        if(Input.GetKeyDown(actionKey) && holdTime < holdDuration && isActivatable)
+        if(canBeActivated())
         {
             onActivationStarted?.Invoke();
+            isKeyHeld = true;
         }
 
-        if (Input.GetKey(actionKey))
+
+        if (isKeyHeld)
         {
-            isKeyHeld = true;
             TriggerTween(true, false);
-        }else if (isActivatable)
-        {
-            TriggerTween(false, true);
         }
-           
+        else
+        {
+            //if not toggle then revert size
+            if (isActivatable)
+            {
+                TriggerTween(false, true);
+            }
+        }
+
+
         if (!isActivatable)
             return;
 

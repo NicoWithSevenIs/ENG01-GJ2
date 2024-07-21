@@ -23,6 +23,10 @@ public class GameLoopManager : MonoBehaviour
     [SerializeField] private int _rollCount;
     private int remainingRolls;
 
+    [Header("Dialogue")]
+    [SerializeField] private StandardDialogue TimesUpDialogue;
+    [SerializeField] private StandardDialogue TimesUpWarningDialogue;
+
 
     private void Start()
     {
@@ -54,7 +58,7 @@ public class GameLoopManager : MonoBehaviour
 
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_TIMES_UP, () => {
             EventBroadcaster.Instance.PostEvent(EventNames.DIALOGUE_EVENTS.ON_TRUNCATE_DIALOGUE);
-            GetComponent<StandardDialogue>().TriggerDialogue();
+            TimesUpDialogue.TriggerDialogue();
             LeanTween.delayedCall(1.5f, () => EventBroadcaster.Instance.PostEvent(EventNames.UI_EVENTS.ON_FLASHLIGHT_INVOCATION) );
         });
 
@@ -105,6 +109,10 @@ public class GameLoopManager : MonoBehaviour
                 Parameters p = new Parameters();
                 p.PutExtra("CurrentHour", currentHour);
                 EventBroadcaster.Instance.PostEvent(EventNames.GAME_LOOP_EVENTS.ON_HOUR_PASSED, p);
+
+                if(currentHour == 4)
+                    TimesUpWarningDialogue.TriggerDialogue();
+                
 
                 hourCounter = 0;
             }

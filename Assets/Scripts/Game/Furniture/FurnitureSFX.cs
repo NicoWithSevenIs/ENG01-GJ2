@@ -8,8 +8,15 @@ public class FurnitureSFX : MonoBehaviour
     [SerializeField] private Canvas canvas;
     public void OnSearchStarted()
     {
-        if(canvas.enabled)
+        if (canvas.enabled)
+        {
             AudioManager.instance.PlaySound(gameObject, "Rifle", null, true);
+
+            Parameters p = new Parameters();
+            p.PutObjectExtra("Position", transform.position);
+            EventBroadcaster.Instance.PostEvent(EventNames.PLAYER_ACTIONS.ON_PLAYER_RIFLING, p);
+        }
+            
     }
 
     public void OnSearchStopped()

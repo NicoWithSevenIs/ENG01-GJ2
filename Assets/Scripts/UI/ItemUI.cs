@@ -55,14 +55,18 @@ public class ItemUI : MonoBehaviour
 
         cooldownUI.fillAmount = currentCooldown / cooldown;
 
-        if (currentCooldown > 0 && willTickDown)
+        if (currentCooldown > 0)
         {
-            currentCooldown -= Time.deltaTime;
+            if(willTickDown)
+                currentCooldown -= Time.deltaTime;
             return;
         }
 
         if (Input.GetKeyDown(keybind))
         {
+            print("Invoked");
+
+
             onActivation?.Invoke();
             currentCooldown = cooldown;
 

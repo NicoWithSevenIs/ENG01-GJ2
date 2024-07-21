@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     [Header("Ambience")]
     [SerializeField] private AudioClip[] ambience;
     [SerializeField] private GameObject ambienceReceiver;
-    [SerializeField] private GameObject soundSource2D;
+    [SerializeField] private GameObject[] soundSource2D;
 
     [Header("Sounds")]
     [SerializeField] private List<Sound> soundList;
@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER, (Parameters p) => StopAllSounds());
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_TIMES_UP, () => {
             StopAllSounds();
-            PlaySound2D("Time's Up");
+            PlaySound2D("Time's Up", null, 1);
         });
     }
 
@@ -47,9 +47,12 @@ public class AudioManager : MonoBehaviour
             
     }
 
-    public void PlaySound2D(string name, Action onFinished = null)
+    public void PlaySound2D(string name, Action onFinished = null, int channel = 0)
     {
-        AudioSource source = soundSource2D.GetComponent<AudioSource>();
+
+        channel = Mathf.Clamp(channel,0, soundSource2D.Length- 1);
+        AudioSource source = soundSource2D[channel].GetComponent<AudioSource>();
+
         AudioClip clip = getClip(name);
 
         if(clip != null)
@@ -71,10 +74,12 @@ public class AudioManager : MonoBehaviour
 
     public void StopAllSounds()
     {
-        print("stopped");
         ambienceReceiver.GetComponent<AudioSource>().Stop();
         StopCoroutine(ambiencethread);
         foreach(var s in sourceList)
+            StopPlaying(s);
+
+        foreach(var s in soundSource2D) 
             StopPlaying(s);
     }
 
@@ -132,8 +137,6 @@ public class AudioManager : MonoBehaviour
             yield break;
         }
 
-        print("starting");
-          
 
         List<AudioClip> playlist = new List<AudioClip>();
 

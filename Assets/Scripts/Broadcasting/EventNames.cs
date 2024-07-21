@@ -39,6 +39,7 @@ public class EventNames {
         public const string ON_PLAYER_SPRINT_STARTED = "ON_PLAYER_SPRINT_STARTED";
         public const string ON_PLAYER_SPRINT = "ON_PLAYER_SPRINT";
         public const string ON_PLAYER_SPRINT_ENDED = "ON_PLAYER_SPRINT_ENDED";
+        public const string ON_PLAYER_RIFLING = "ON_PLAYER_RIFLING";
     }
 
 

@@ -73,7 +73,7 @@ public class WaypointManager : MonoBehaviour
                     if(j > 0)
                         adjacentWaypoints.Add(_waypoints[i, j - 1]);
 
-                    if (j > _waypoints.GetLength(1) - 1)
+                    if (j < _waypoints.GetLength(1) - 1)
                         adjacentWaypoints.Add(_waypoints[i, j + 1]);
 
                     break;
