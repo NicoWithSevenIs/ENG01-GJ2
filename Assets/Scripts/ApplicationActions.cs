@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class ApplicationActions 
 {
     public static void Play()
-    {
+    {  
         SceneManager.LoadScene("GameScene");
     }
 
     public static void BackToMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("MainMenu");
     }
 

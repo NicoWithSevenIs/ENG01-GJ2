@@ -43,11 +43,18 @@ public class EnemyStateMachine : MonoBehaviour
         agent = enemy.GetComponent<NavMeshAgent>();
         waypoints = GetComponent<WaypointManager>();
 
+        pathHistory = new CircularBuffer<Transform>(3);
+
+        Transform nearestOnSpawn = waypoints.getNearestWaypoint(enemy.transform.position);
+        pathHistory.Push(nearestOnSpawn);
+
+
         void SpawnEnemy()
         {
             if (enemy.activeInHierarchy)
                 return;
 
+            //Spawns the enemy n tiles away from the waypoint closest to the player. In this case, it's hard coded to 2
             List<Transform> waypointList = waypoints.getAllWaypointFromDistanceN(waypoints.getNearestWaypoint(player.transform.position), 2);
             enemy.transform.position = waypointList[Random.Range(0, waypointList.Count)].position;
             enemy.SetActive(true);
@@ -55,28 +62,26 @@ public class EnemyStateMachine : MonoBehaviour
             GetComponent<StandardDialogue>().TriggerDialogue();
         }
 
-
+        //Spawn enemy if it's 1 AM 
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_HOUR_PASSED, (Parameters p) => {
             if (p.GetIntExtra("CurrentHour", 1) == 1)
                 SpawnEnemy();
         });
 
+        //Spawn enemy when the first music roll has been found
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_REFRESHED, (Parameters p) => { 
             if(p.GetIntExtra("RollCount", 1) == 3)
                 SpawnEnemy(); 
         });
 
+        //When it's 6AM, abort all actions and hunt for the player
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_TIMES_UP, () => {
+            StopAllCoroutines();
             currentState = EnemyState.Hunting;
             agent.speed *= 1.5f;   
         });
 
         EventBroadcaster.Instance.AddObserver(EventNames.PLAYER_ACTIONS.ON_PLAYER_RIFLING, TriggerInvestigation);
-
-        pathHistory = new CircularBuffer<Transform>(3);
-
-        Transform nearestOnSpawn = waypoints.getNearestWaypoint(enemy.transform.position);
-        pathHistory.Push(nearestOnSpawn);
 
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_GAME_OVER, () => StopAllCoroutines());
     }
@@ -88,11 +93,10 @@ public class EnemyStateMachine : MonoBehaviour
         if (!enemy.activeInHierarchy)
             return;
         
-
-
+    
         switch(currentState)
         {
-            case EnemyState.Investigating: Investigate(); break;
+            case EnemyState.Investigating: /*Investigate();*/ break;
             case EnemyState.Hunting: HuntPlayer(); break;
             case EnemyState.Roaming: Roam(); break;
             case EnemyState.Chasing: ChasePlayer(); break;
@@ -106,47 +110,70 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void TriggerInvestigation(Parameters p)
     {
+
+        if (currentState == EnemyState.TurningOff)
+            return;
+
         Vector3 furniturePos = (Vector3)p.GetObjectExtra("Position");
 
         Vector3 agentPos = agent.gameObject.transform.position;
 
-        print(Vector3.Distance(furniturePos, agentPos));
         if (Vector3.Distance(furniturePos, agentPos) <= hearingRadius)
         {
             investigationTarget= furniturePos;
             currentState = EnemyState.Investigating;
+
+            if(InvestigationAction != null)
+                StopCoroutine(InvestigationAction);
+            InvestigationAction = StartCoroutine(InvestigateNoise());
         }
     }
 
+    /*
     private void Investigate()
     {
         if (InvestigationAction == null)
             InvestigationAction = StartCoroutine(InvestigateNoise());
     }
+    */
 
     private IEnumerator InvestigateNoise()
     {
-
         void setAgentEnabled(bool value)
         {
-            if(!value)
-                agent.velocity= Vector3.zero;
+            if (!value)
+                agent.velocity = Vector3.zero;
             agent.isStopped = !value;
         }
 
+
+        //in case the coroutine gets overridden by another investigation call
+        setAgentEnabled(true);
+
+     
         //Walk over to the noise location
         agent.SetDestination(investigationTarget);
+
 
         //Wait until the agent has arrived at the target location. Can be distracted by active lamps in its path.
         while(agent.remainingDistance > 4f)
         {
+            _targetWaypoint = waypoints.getNearestWaypoint(agent.gameObject.transform.position);
             if (checkPivotToLamp())
             {
-                print("Pivoted");
+                currentState = EnemyState.Roaming; //Go back to roaming, since turning off lamp immobilizes the agent
                 InvestigationAction = null;
                 yield break;
             }
-            else yield return null; 
+
+            if (sightArea.Player != null)
+            {
+                currentState = EnemyState.Chasing;
+                InvestigationAction = null;
+                yield break;
+            }
+
+            yield return null; 
         }
 
         //camps the area for 3 seconds 
@@ -155,8 +182,6 @@ public class EnemyStateMachine : MonoBehaviour
         setAgentEnabled(false);
         while (Time.time < patrolTime)
         {
-            print("Time: " + Time.time);
-            print("Patrol Time: " + patrolTime);
             if (sightArea.Player != null)
             {
                 currentState = EnemyState.Chasing;
@@ -181,6 +206,7 @@ public class EnemyStateMachine : MonoBehaviour
     #region Hunt
     private void HuntPlayer()
     {
+        agent.isStopped = false;
         agent.SetDestination(player.transform.position);
     }
 
@@ -217,7 +243,7 @@ public class EnemyStateMachine : MonoBehaviour
 
             agent.SetDestination(_targetWaypoint.position);
 
-            if (Vector3.Distance(_targetWaypoint.position, enemy.transform.position) < 2f)
+            if (Vector3.Distance(_targetWaypoint.position, enemy.transform.position) < 5f)
             {
 
                 Lamp lamp = _targetWaypoint.GetComponent<Lamp>();
@@ -228,7 +254,6 @@ public class EnemyStateMachine : MonoBehaviour
                 }else
                 {
                     pathHistory.Push(_targetWaypoint);
-                    //_previousWaypoint = _targetWaypoint;
                     _targetWaypoint = null;
                 }
             }
@@ -255,14 +280,13 @@ public class EnemyStateMachine : MonoBehaviour
             agent.SetDestination(lamp.transform.position);
 
 
-            if (Vector3.Distance(lamp.transform.position, enemy.transform.position) < 2f)
+            if (Vector3.Distance(lamp.transform.position, enemy.transform.position) < 5f)
             {
                 _targetLamp = lamp;
                 currentState = EnemyState.TurningOff;
+                return true;
             }
-
-            return true;
-
+            
         }
 
         return false;

@@ -17,6 +17,8 @@ public class Journal : MonoBehaviour
 
     [SerializeField] private List<UnlockablePage> unlockablePages;
 
+    
+
     private List<RectTransform> pageObjects;
 
     private void Start()
@@ -42,7 +44,7 @@ public class Journal : MonoBehaviour
         prev.GetComponent<Button>().onClick.AddListener(decrementPage);
 
         
-        setPage(0);
+        setPage(1);
 
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_MUSIC_ROLL_FOUND, AddPage);
     }
@@ -55,7 +57,12 @@ public class Journal : MonoBehaviour
 
        
         for(int i =0; i < pageObjects.Count; i++)
-            pageObjects[i].gameObject.GetComponent<CanvasGroup>().alpha = i == currentPage ? 1 : 0;
+        {
+            CanvasGroup c = pageObjects[i].gameObject.GetComponent<CanvasGroup>();
+            c.alpha = i == currentPage ? 1 : 0;
+            c.blocksRaycasts = i == currentPage;
+        }
+            
         
 
         prev.gameObject.SetActive(currentPage > 0);
