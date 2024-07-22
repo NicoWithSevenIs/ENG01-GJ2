@@ -16,19 +16,19 @@ public class FurnitureManager : MonoBehaviour
 
 
     [Header("Debugging")]
-    [SerializeField] private bool debugMode = true;
+    [SerializeField] private bool debugMode;
     [SerializeField] private GameObject debuggable;
     private List<GameObject> debuggables;
     
 
     private void Initialize()
     {
+        debugMode = PlayerPrefs.GetInt("CheatModeActive", 0) == 1;
+
         debuggables = new List<GameObject>();
 
         foreach (Transform i in transform)
         {
-
-          
 
             GameObject p = Instantiate(promptable);
             p.transform.parent = i;
@@ -50,9 +50,6 @@ public class FurnitureManager : MonoBehaviour
             }
      
         }
-
-
-
 
         EventBroadcaster.Instance.AddObserver(EventNames.GAME_LOOP_EVENTS.ON_FURNITURE_INSPECTION, 
             (Parameters p) =>
