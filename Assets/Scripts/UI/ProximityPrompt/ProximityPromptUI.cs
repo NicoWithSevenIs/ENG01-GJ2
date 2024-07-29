@@ -107,6 +107,13 @@ public class ProximityPromptUI : MonoBehaviour
         {   
             isKeyHeld = false;
 
+            if (holdTime > 0)
+            {
+                print("Aborted");
+                onActivationAborted?.Invoke();
+            }
+            
+            
             if (isToggle)
                 isActivatable = true;
         }
@@ -145,13 +152,7 @@ public class ProximityPromptUI : MonoBehaviour
             isActivatable = false;
             holdTime = 0f;
             onCompletion?.Invoke();
-        }else if(holdTime < holdDuration) {
-            if (Input.GetKeyUp(actionKey))
-            {
-                print("Aborted");
-                onActivationAborted?.Invoke();
-            }
-        }
+        } 
         
         
 

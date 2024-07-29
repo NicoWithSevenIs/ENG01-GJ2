@@ -21,7 +21,6 @@ public class FurnitureSFX : MonoBehaviour
 
     public void OnSearchStopped()
     {
-        print("Stopped");
         AudioManager.instance.StopPlaying(gameObject);
     }
 }
