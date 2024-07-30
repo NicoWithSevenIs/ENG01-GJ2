@@ -14,8 +14,11 @@ public class ProximityPromptUI : MonoBehaviour
     [SerializeField] private string actionText;
     [SerializeField] private bool isToggle;
 
-    bool isKeyHeld;
-    bool isActivatable;
+    private bool isKeyHeld;
+
+    public bool IsKeyHeld { get { return isKeyHeld; } set { isKeyHeld = value; } }
+
+    private bool isActivatable;
 
     [Header("References")]
     [SerializeField] private GameObject keyFrameGUI;
@@ -29,6 +32,8 @@ public class ProximityPromptUI : MonoBehaviour
     [Header("Hold")]
     [SerializeField] private float holdDuration = 3f;
     private float holdTime;
+
+    public float HoldTime { get { return holdTime; } }
 
     [Header("Actions")]
     public UnityEvent onCompletion;
@@ -54,6 +59,7 @@ public class ProximityPromptUI : MonoBehaviour
         isActivatable = true;
 
         playerInRange = false;
+
     }
 
     public void setPlayerInRange(bool value)

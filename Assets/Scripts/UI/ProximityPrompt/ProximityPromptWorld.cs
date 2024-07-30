@@ -37,7 +37,17 @@ public class ProximityPromptWorld : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+
+
+            if (ui.HoldTime > 0)
+            {
+                ui.onActivationAborted.Invoke();
+                ui.IsKeyHeld = false;
+            }
+            
             StartCoroutine(delayedDisable());
+
+                
         }
             
      
