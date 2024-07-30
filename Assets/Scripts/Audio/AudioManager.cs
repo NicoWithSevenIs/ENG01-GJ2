@@ -44,6 +44,10 @@ public class AudioManager : MonoBehaviour
             if(onFinished != null)
                 StartCoroutine(doOnFinishedClip(source, onFinished));
         }
+        else
+        {
+            print($"{name} not found");
+        }
             
     }
 

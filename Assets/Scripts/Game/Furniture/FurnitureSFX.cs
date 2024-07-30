@@ -10,7 +10,12 @@ public class FurnitureSFX : MonoBehaviour
     {
         if (canvas.enabled)
         {
-            AudioManager.instance.PlaySound(gameObject, "Rifle", null, true);
+            int sfxVariant = Random.Range(1, 6);
+
+            print(sfxVariant);
+
+            AudioManager.instance.StopPlaying(gameObject);
+            AudioManager.instance.PlaySound(gameObject, "Search " + sfxVariant.ToString(), null, true);
 
             Parameters p = new Parameters();
             p.PutObjectExtra("Position", transform.position);
