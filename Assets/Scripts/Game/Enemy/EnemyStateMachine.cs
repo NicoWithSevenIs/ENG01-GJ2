@@ -111,6 +111,9 @@ public class EnemyStateMachine : MonoBehaviour
     private void TriggerInvestigation(Parameters p)
     {
 
+        if (!enemy.activeInHierarchy)
+            return;
+
         if (currentState == EnemyState.TurningOff)
             return;
 
